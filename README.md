@@ -31,74 +31,15 @@ A lightweight, feature-rich system tray color picker for Linux with multi-monito
 
 ## Dependencies
 
-- Qt6 (Core, Gui, Widgets)
-- CMake 3.16 or higher
-- C++17 compatible compiler
 - Spectacle (KDE screenshot utility) - for screen capture functionality
-
-### Installing Dependencies
-
-**Arch Linux / Manjaro:**
-```bash
-sudo pacman -S qt6-base cmake spectacle
-```
-
-**Ubuntu / Debian:**
-```bash
-sudo apt install qt6-base-dev cmake spectacle
-```
-
-**Fedora:**
-```bash
-sudo dnf install qt6-qtbase-devel cmake spectacle
-```
-
-## Building
-
-1. Clone the repository:
-```bash
-git clone <repository-url>
-cd color-picker
-```
-
-2. Build using the provided script:
-```bash
-chmod +x build.sh
-./build.sh
-```
-
-Or manually with CMake:
-```bash
-mkdir build
-cd build
-cmake ..
-make
-```
 
 ## Installation
 
-After building, install system-wide:
-```bash
-cd build
-sudo make install
-```
-
-This will install:
-- Binary to `/usr/local/bin/colorpicker`
-- Desktop entry to `/usr/local/share/applications/`
-- Icon to `/usr/local/share/icons/hicolor/scalable/apps/`
-
-## Uninstallation
-
-Use the provided uninstall script:
-```bash
-chmod +x uninstall.sh
-sudo ./uninstall.sh
-```
+Download the AppImage from the releases page
 
 ## Usage
 
-1. Launch the application from your application menu or run `colorpicker` in terminal
+1. Launch the application
 2. The color picker icon will appear in your system tray
 3. Right-click the tray icon to access options:
    - **Pick Color** - Activate the color picker
@@ -120,7 +61,7 @@ sudo ./uninstall.sh
 
 ## License
 
-[Specify your license here]
+[MIT License](LICENSE-MIT)
 
 ## Contributing
 

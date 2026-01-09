@@ -3,6 +3,12 @@ build/
 Build/
 BUILD/
 
+# AppImage build artifacts
+*.AppImage
+*.AppDir/
+linuxdeploy-*.AppImage
+appimagetool-*.AppImage
+
 # CMake
 CMakeCache.txt
 CMakeFiles/

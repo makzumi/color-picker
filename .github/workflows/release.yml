@@ -1,0 +1,39 @@
+name: Build and Release AppImage
+
+on:
+  push:
+    tags:
+      - 'v*'  # Triggers on version tags like v1.0, v1.1, etc.
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+      
+    - name: Install dependencies
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y qt6-base-dev cmake build-essential libgl1-mesa-dev wget
+        
+    - name: Build AppImage
+      run: |
+        chmod +x build-appimage.sh
+        ./build-appimage.sh
+        
+    - name: Get version
+      id: get_version
+      run: |
+        VERSION=$(grep -oP 'project\(colorpicker VERSION \K[0-9.]+' CMakeLists.txt)
+        echo "version=$VERSION" >> $GITHUB_OUTPUT
+        
+    - name: Create Release
+      uses: softprops/action-gh-release@v1
+      with:
+        files: dist/ColorPicker-${{ steps.get_version.outputs.version }}-x86_64.AppImage
+        draft: false
+        prerelease: false
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
