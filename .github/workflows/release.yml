@@ -16,7 +16,7 @@ jobs:
     - name: Install dependencies
       run: |
         sudo apt-get update
-        sudo apt-get install -y qt6-base-dev cmake build-essential libgl1-mesa-dev wget libfuse2
+        sudo apt-get install -y qt6-base-dev cmake build-essential libgl1-mesa-dev wget libfuse2t64
         
     - name: Build AppImage
       run: |
