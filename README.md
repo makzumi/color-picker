@@ -1,4 +1,4 @@
-# Color Picker
+# Color Picker for Linux
 
 A lightweight, feature-rich system tray color picker for Linux with multi-monitor support and multiple color format outputs.
 
