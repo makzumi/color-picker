@@ -22,6 +22,15 @@ if [ ! -f appimagetool-x86_64.AppImage ]; then
     chmod +x appimagetool-x86_64.AppImage
 fi
 
+# Extract appimagetool if FUSE is not available (e.g., in CI environments)
+if ! command -v fusermount &> /dev/null && [ ! -d squashfs-root ]; then
+    echo "FUSE not available, extracting appimagetool..."
+    ./appimagetool-x86_64.AppImage --appimage-extract > /dev/null
+    APPIMAGETOOL="./squashfs-root/AppRun"
+else
+    APPIMAGETOOL="./appimagetool-x86_64.AppImage"
+fi
+
 # Create AppDir structure
 mkdir -p ColorPicker.AppDir/usr/bin
 mkdir -p ColorPicker.AppDir/usr/lib
@@ -47,6 +56,6 @@ EOF
 fi
 
 # Generate the AppImage in dist folder
-./appimagetool-x86_64.AppImage ColorPicker.AppDir dist/ColorPicker-${VERSION}-x86_64.AppImage
+"$APPIMAGETOOL" ColorPicker.AppDir dist/ColorPicker-${VERSION}-x86_64.AppImage
 
 echo "AppImage created: dist/ColorPicker-${VERSION}-x86_64.AppImage"
