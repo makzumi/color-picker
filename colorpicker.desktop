@@ -1,0 +1,10 @@
+[Desktop Entry]
+Type=Application
+Name=Color Picker
+Comment=A simple color picker tool
+Exec=/usr/local/bin/colorpicker
+Icon=colorpicker
+Terminal=false
+Categories=Utility;Graphics;
+StartupNotify=false
+X-GNOME-Autostart-enabled=true
