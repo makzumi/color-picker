@@ -8,3 +8,4 @@ Terminal=false
 Categories=Utility;Graphics;
 StartupNotify=false
 X-GNOME-Autostart-enabled=true
+X-AppImage-Integrate=false
